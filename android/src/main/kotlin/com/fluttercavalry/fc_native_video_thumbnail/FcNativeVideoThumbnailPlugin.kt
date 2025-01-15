@@ -73,7 +73,8 @@ class FcNativeVideoThumbnailPlugin: FlutterPlugin, MethodCallHandler {
             var scaled = false
             if (srcFileUri) {
               val mmr = MediaMetadataRetriever()
-              mmr.setDataSource(mContext, Uri.parse(srcFile))
+              //mmr.setDataSource(mContext, Uri.parse(srcFile))
+              mmr.setDataSource(srcFile, hashMapOf())
               if (Build.VERSION.SDK_INT >= 27) {
                 bitmap = mmr.getScaledFrameAtTime(-1, OPTION_CLOSEST_SYNC, width, height)
                 scaled = true
